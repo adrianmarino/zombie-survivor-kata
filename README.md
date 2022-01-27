@@ -74,7 +74,7 @@ As the Game proceeds, Survivors get better.
 
 - A set of potential **Skills** and the Levels where they are unlocked is called a **Skill Tree**.
 - Each Survivor begins with a Skill Tree.
-    - A Skill Tree consists of *potential* skills and *unlocked* skills.
+    - A Skill Tree consists of *potential* skills and *unlocked* skills.22 
     - A Skill Tree begins with 1 *potential* skill at level Yellow, 2 at Orange, and 3 at Red.
     - All Skill Trees have the same Yellow skill: "+1 Action".
     - Each Survivor can have a Skill Tree unique to themselves.

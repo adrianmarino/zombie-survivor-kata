@@ -75,7 +75,7 @@ public class Survivor {
         return !isAlive();
     }
 
-    public void receiveWounds(int value) {
+    public void receiveAttack(int value) {
         wounds = min(wounds + value, MAX_WOUNDS);
         firstOf(equipmentInHands).ifPresentOrElse(equipmentInHands::remove, () -> firstOf(equipmentInBag).ifPresent(equipmentInBag::remove));
         eventListeners.forEach(it -> it.onIsWounded(this, value));
