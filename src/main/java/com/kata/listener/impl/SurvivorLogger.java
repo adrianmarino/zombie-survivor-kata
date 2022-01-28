@@ -1,7 +1,7 @@
 package com.kata.listener.impl;
 
-import com.kata.survivor.ExperienceLevel;
 import com.kata.listener.SurvivorEventListener;
+import com.kata.survivor.ExperienceLevel;
 import com.kata.survivor.Survivor;
 import lombok.extern.slf4j.Slf4j;
 

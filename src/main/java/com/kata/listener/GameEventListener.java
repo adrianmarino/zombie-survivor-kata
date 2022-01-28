@@ -1,7 +1,7 @@
 package com.kata.listener;
 
-import com.kata.survivor.ExperienceLevel;
 import com.kata.Game;
+import com.kata.survivor.ExperienceLevel;
 import com.kata.survivor.Survivor;
 
 public interface GameEventListener {
