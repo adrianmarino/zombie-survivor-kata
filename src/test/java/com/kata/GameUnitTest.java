@@ -1,12 +1,15 @@
 package com.kata;
 
 import com.kata.listener.GameEventListener;
+import com.kata.listener.impl.GameLogger;
+import com.kata.listener.impl.SurvivorLogger;
 import com.kata.survivor.Survivor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
+import static com.google.common.collect.Sets.newHashSet;
 import static com.kata.survivor.ExperienceLevel.BLUE;
 import static com.kata.survivor.ExperienceLevel.RED;
 import static com.kata.survivor.SurvivorBuilder.aSurvivor;
@@ -20,8 +23,9 @@ public class GameUnitTest {
     @DisplayName("when add a survivor to game it has only added survivor")
     void test1() {
         // Prepare
-        var game = new Game();
-        var survivor = aSurvivor().name("Adrian").build();
+        var game = new Game(Set.of(GameLogger.getInstance()));
+        var survivor = aSurvivor().name("Adrian").listener(SurvivorLogger.getInstance()).build();
+        game.start();
 
         // Perform
         game.add(survivor);
@@ -68,7 +72,7 @@ public class GameUnitTest {
     void test4() {
         // Prepare
         var listener = mock(GameEventListener.class);
-        var game = new Game(Set.of(listener));
+        var game = new Game(newHashSet(listener));
 
         // Perform
         game.start();
@@ -82,7 +86,7 @@ public class GameUnitTest {
     void test5() {
         // Prepare
         var listener = mock(GameEventListener.class);
-        var game = new Game(Set.of(listener));
+        var game = new Game(newHashSet(listener));
         Survivor survivor = aSurvivor().name("Adrian").build();
         game.add(survivor);
         game.start();

@@ -9,8 +9,16 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-public class GameLogger implements GameEventListener {
+public final class GameLogger implements GameEventListener {
 
+    public static GameEventListener instance = null;
+
+    public static  GameEventListener getInstance() {
+        return instance == null ? instance = new GameLogger(): instance;
+    }
+
+    private GameLogger() {
+    }
     @Override
     public void onStart(Game game) {
         log.info("Game {} started.", game.hashCode());
@@ -25,4 +33,5 @@ public class GameLogger implements GameEventListener {
     public void onLevelChange(Game game, ExperienceLevel previousLevel) {
         log.info("Level changed from {} to {}.", previousLevel, game.getMaxExperienceLevel());
     }
+
 }

@@ -1,6 +1,7 @@
 package com.kata.survivor;
 
 import com.kata.listener.SurvivorEventListener;
+import com.kata.listener.impl.SurvivorLogger;
 
 import java.util.Set;
 

@@ -2,6 +2,7 @@ package com.kata;
 
 import com.kata.listener.GameEventListener;
 import com.kata.listener.SurvivorEventListener;
+import com.kata.listener.impl.GameLogger;
 import com.kata.survivor.ExperienceLevel;
 import com.kata.survivor.Survivor;
 import lombok.NonNull;
@@ -11,18 +12,19 @@ import java.util.Set;
 
 import static com.google.common.collect.ImmutableMap.copyOf;
 import static com.google.common.collect.Maps.newHashMap;
+import static com.google.common.collect.Sets.newHashSet;
 import static com.kata.survivor.ExperienceLevel.BLUE;
 
 public class Game implements SurvivorEventListener {
 
     private final Map<String, Survivor> survivors;
 
-    private final Set<GameEventListener> eventListeners;
-
     private final ExperienceLevel previousLevel;
 
+    private final Set<GameEventListener> eventListeners;
+
     public Game() {
-        this(Set.of());
+        this(newHashSet());
     }
 
     public Game(@NonNull Set<GameEventListener> eventListeners) {
